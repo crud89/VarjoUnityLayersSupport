@@ -1,0 +1,7 @@
+{
+  "name": "unity-plugin-api",
+  "version-date": "2026-08-10",
+  "description": "Unity low-level native plug-in API headers, as published in Unity's NativeRenderingPlugin sample.",
+  "homepage": "https://github.com/Unity-Technologies/NativeRenderingPlugin",
+  "license": "MIT"
+}

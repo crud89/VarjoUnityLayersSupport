@@ -1,0 +1,6 @@
+The Unity native plug-in API headers provide a CMake target:
+
+    find_package(unity-plugin-api CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE unofficial::unity-plugin-api)
+
+Include the headers by file name, e.g. #include <IUnityGraphics.h>.

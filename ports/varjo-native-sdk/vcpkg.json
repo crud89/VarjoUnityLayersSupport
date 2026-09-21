@@ -1,0 +1,9 @@
+{
+  "name": "varjo-native-sdk",
+  "version": "4.15.0",
+  "description": "Varjo Native SDK is a collection of libraries and a C/C++ API used to enable the functionality of Varjo headsets.",
+  "homepage": "https://www.varjo.com",
+  "documentation": "https://developer.varjo.com/",
+  "license": null,
+  "supports": "windows & !uwp & !xbox & !arm & x64"
+}

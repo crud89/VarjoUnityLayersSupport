@@ -1,0 +1,9 @@
+The Varjo Native SDK package provides CMake targets:
+
+    find_package(varjo-native-sdk CONFIG REQUIRED)
+
+    # Link VarjoLib.dll directly:
+    target_link_libraries(main PRIVATE unofficial::VarjoLib)
+
+    # Or use the headers only, resolving VarjoLib.dll at runtime:
+    target_link_libraries(main PRIVATE unofficial::VarjoHeaders)

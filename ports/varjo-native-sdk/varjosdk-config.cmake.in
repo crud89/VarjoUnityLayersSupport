@@ -1,0 +1,24 @@
+get_filename_component(_varjo_root "${CMAKE_CURRENT_LIST_DIR}" PATH)
+get_filename_component(_varjo_root "${_varjo_root}" PATH)
+
+# Headers only, for consumers that bind to an already loaded VarjoLib.dll at runtime.
+if(NOT TARGET unofficial::VarjoHeaders)
+  add_library(unofficial::VarjoHeaders INTERFACE IMPORTED)
+  set_target_properties(unofficial::VarjoHeaders PROPERTIES
+    INTERFACE_INCLUDE_DIRECTORIES "${_varjo_root}/include")
+endif()
+
+if(NOT TARGET unofficial::VarjoLib)
+  add_library(unofficial::VarjoLib SHARED IMPORTED)
+  set_target_properties(unofficial::VarjoLib PROPERTIES
+    IMPORTED_LOCATION_DEBUG              "${_varjo_root}/debug/bin/VarjoLib.dll"
+    IMPORTED_LOCATION_RELEASE            "${_varjo_root}/bin/VarjoLib.dll"
+    IMPORTED_IMPLIB_DEBUG                "${_varjo_root}/debug/lib/VarjoLib.lib"
+    IMPORTED_IMPLIB_RELEASE              "${_varjo_root}/lib/VarjoLib.lib"
+    IMPORTED_CONFIGURATIONS              "Debug;Release"
+    MAP_IMPORTED_CONFIG_RELWITHDEBINFO   Release
+    MAP_IMPORTED_CONFIG_MINSIZEREL       Release
+    INTERFACE_LINK_LIBRARIES             unofficial::VarjoHeaders)
+endif()
+
+unset(_varjo_root)
